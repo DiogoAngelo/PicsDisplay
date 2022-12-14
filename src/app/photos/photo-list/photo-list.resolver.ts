@@ -20,6 +20,6 @@ export class PhotoListResolver implements Resolve<Observable<Photo[]>> {
   ): Observable<Photo[]> {
     const userName = route.params.userName;
 
-    return this.photoService.listFromUser(userName);
+    return this.photoService.listFromUser(userName, 1);
   }
 }
