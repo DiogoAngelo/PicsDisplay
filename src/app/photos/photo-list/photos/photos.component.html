@@ -3,11 +3,22 @@
 </p>
 <ol class="list-unstyled d-flex flex-column justify-content-center align-items-center">
   <li *ngFor="let cols of rows" class="row no-gutters">
-    <div *ngFor="let photo of cols" class="col-4">
-      <ap-photo
-          [url]="photo.url"
-          [description]="photo.description">
-      </ap-photo>
+    <div *ngFor="let photo of cols" class=" d-flex flex-column col-4">
+      <ap-card [title]="photo.description  " >
+        <ap-photo
+            [url]="photo.url"
+            [description]="photo.description">
+        </ap-photo>
+        <div class="d-flex justify-content-center align-items-center">
+          <span class="mr-2">
+            <i aria-hidden="true" class="fa fa-heart-o fa-1x"></i>
+            {{ photo.likes }}
+          </span>
+          <span class="ml-1">
+            <i aria-hidden="true" class="fa fa-comment-o fa-1x"></i> {{ photo.comments }}
+          </span>
+        </div>
+      </ap-card>
     </div>
   </li>
 </ol>
