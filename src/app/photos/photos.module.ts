@@ -9,6 +9,7 @@ import { PhotosComponent } from "./photo-list/photos/photos.component";
 import { FilterByDescriptionPipe } from "./photo-list/photos/filter-by-description.pipe";
 import { LoadButtonComponent } from "./photo-list/load-button/load-button.component";
 import { SharedModule } from "../shared/shared.module";
+import { SearchComponent } from "./photo-list/photos/search/search.component";
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { SharedModule } from "../shared/shared.module";
     PhotosComponent,
     FilterByDescriptionPipe,
     LoadButtonComponent,
+    SearchComponent,
   ],
   imports: [HttpClientModule, CommonModule, SharedModule],
 })
