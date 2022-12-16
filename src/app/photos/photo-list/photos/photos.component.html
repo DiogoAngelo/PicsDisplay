@@ -1,9 +1,10 @@
+
 <p *ngIf="!photos.length" class="text-center text-muted">
   Sorry, there are no photos to display.
 </p>
-<ol class="list-unstyled d-flex flex-column justify-content-center align-items-center">
+<ol class="list-unstyled d-flex flex-column justify-content-center align-items-center" >
   <li *ngFor="let cols of rows" class="row no-gutters">
-    <div *ngFor="let photo of cols" class=" d-flex flex-column col-4">
+    <div *ngFor="let photo of cols" class=" d-flex flex-column col-4" apDarkenOnHover >
       <ap-card [title]="photo.description  " >
         <ap-photo
             [url]="photo.url"
