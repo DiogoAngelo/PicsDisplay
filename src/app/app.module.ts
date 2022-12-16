@@ -6,10 +6,17 @@ import { PhotosModule } from "./photos/photos.module";
 import { AppRoutingModule } from "./app.routing.module";
 import { ErrorsModule } from "./errors/errors.module";
 import { SharedModule } from "./shared/shared.module";
+import { HomeModule } from "./home/home.module";
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, PhotosModule, AppRoutingModule, ErrorsModule],
+  imports: [
+    BrowserModule,
+    PhotosModule,
+    AppRoutingModule,
+    ErrorsModule,
+    HomeModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

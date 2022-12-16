@@ -1,0 +1,34 @@
+<h4 class="text-center">Login</h4>
+
+<form class="form mt-4" [formGroup]="loginForm" >
+
+    <div class="form-group">
+        <input
+            class="form-control"
+            placeholder="user name"
+            formControlName="userName"
+            autofocus>
+            <ap-form-validation [control]="loginForm.controls.userName" ></ap-form-validation>
+
+    </div>
+
+    <div class="form-group">
+        <input
+            type="password"
+            class="form-control"
+            formControlName="password"
+            placeholder="password">
+            <ap-form-validation [control]="loginForm.controls.password" ></ap-form-validation>
+    </div>
+
+    <button
+        type="submit"
+        class="btn btn-primary btn-block"
+        [disabled]="loginForm.invalid"
+        >
+        login
+    </button>
+
+</form>
+
+<p>Not a user?<a>Register now</a></p>
