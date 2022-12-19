@@ -1,8 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { Subject } from "rxjs";
 import { Photo } from "../photo/photo";
-import { debounceTime } from "rxjs/operators";
 import { PhotoService } from "../photo/photo.service";
 
 @Component({
@@ -13,7 +11,6 @@ import { PhotoService } from "../photo/photo.service";
 export class PhotoListComponent implements OnInit {
   public photos: Photo[] = [];
   public filter: string = "";
-  public debounce: Subject<string> = new Subject<string>();
   public hasMore: boolean = true;
   public currentPage: number = 1;
   public userName: string = "";
