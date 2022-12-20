@@ -1,1 +1,19 @@
-<small *ngIf=" control.touched && control.errors?.required" class="text-danger d-block mt-0" >O preenchimento desse campo é obrigatório</small>
+<div *ngIf="control.touched" >
+  <small *ngIf="control.errors?.required" class="text-danger d-block mt-0" >O preenchimento desse campo é obrigatório</small>
+  <small *ngIf="control.errors?.minlength" class="text-danger d-block mt-0" >
+    O campo deve ter no mínimo {{control.errors?.minlength.requiredLength}} caracteres
+  </small>
+  <small *ngIf="control.errors?.maxlength" class="text-danger d-block mt-0" >
+    O campo deve ter no máximo {{control.errors?.maxlength.requiredLength}} caracteres
+  </small>
+  <small *ngIf="control.errors?.email" class="text-danger d-block mt-0" >
+    Formato de e-mail inválido
+  </small>
+  <small *ngIf="control.errors?.pattern" class="text-danger d-block mt-0" >
+    O nome deve ser em letras minúsculas
+  </small>
+  <small *ngIf="control.errors?.userNameTaken" class="text-danger d-block mt-0" >
+    Nome do usuário já existe
+  </small>
+</div>
+

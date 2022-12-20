@@ -8,7 +8,7 @@
             class="form-control"
             placeholder="user name"
             formControlName="userName"
-            autofocus>
+            >
             <ap-form-validation [control]="loginForm.controls.userName" ></ap-form-validation>
 
     </div>
@@ -32,4 +32,4 @@
 
 </form>
 
-<p>Not a user?<a>Register now</a></p>
+<p>Not a user?<a  [routerLink]="['/signup']" class="ml-2" >Register now</a></p>
