@@ -4,5 +4,6 @@
   "cSpell.words": [
     "ALURAPIC",
     "signin"
-  ]
+  ],
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

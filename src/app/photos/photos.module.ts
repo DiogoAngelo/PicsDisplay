@@ -10,6 +10,7 @@ import { FilterByDescriptionPipe } from "./photo-list/photos/filter-by-descripti
 import { LoadButtonComponent } from "./photo-list/load-button/load-button.component";
 import { SharedModule } from "../shared/shared.module";
 import { SearchComponent } from "./photo-list/photos/search/search.component";
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -21,6 +22,12 @@ import { SearchComponent } from "./photo-list/photos/search/search.component";
     LoadButtonComponent,
     SearchComponent,
   ],
-  imports: [HttpClientModule, CommonModule, SharedModule],
+  imports: [
+    HttpClientModule,
+    CommonModule,
+    SharedModule,
+    ReactiveFormsModule,
+    FormsModule,
+  ],
 })
 export class PhotosModule {}
