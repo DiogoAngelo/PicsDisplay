@@ -6,6 +6,8 @@ import { PhotosModule } from "./photos/photos.module";
 import { AppRoutingModule } from "./app.routing.module";
 import { ErrorsModule } from "./errors/errors.module";
 import { CoreModule } from "./core/core.module";
+import { HTTP_INTERCEPTORS } from "@angular/common/http";
+import { RequestInterceptor } from "./core/request.interceptor";
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,7 +18,13 @@ import { CoreModule } from "./core/core.module";
     ErrorsModule,
     CoreModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: RequestInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
