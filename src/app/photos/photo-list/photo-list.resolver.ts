@@ -6,7 +6,7 @@ import {
 } from "@angular/router";
 import { Observable } from "rxjs";
 import { Photo } from "../photo/photo";
-import { PhotoService } from "../photo/photo.service";
+import { PhotoService } from "../../Service/photo.service";
 
 @Injectable({
   providedIn: "root",

@@ -11,6 +11,7 @@ import { LoadButtonComponent } from "./photo-list/load-button/load-button.compon
 import { SharedModule } from "../shared/shared.module";
 import { SearchComponent } from "./photo-list/photos/search/search.component";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
+import { RouterModule } from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ReactiveFormsModule, FormsModule } from "@angular/forms";
     SharedModule,
     ReactiveFormsModule,
     FormsModule,
+    RouterModule,
   ],
 })
 export class PhotosModule {}
