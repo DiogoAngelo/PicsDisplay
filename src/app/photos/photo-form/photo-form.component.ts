@@ -11,6 +11,7 @@ import { Router } from "@angular/router";
 export class PhotoFormComponent implements OnInit {
   public photoForm: FormGroup;
   public file: File;
+  public preview: string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -35,5 +36,12 @@ export class PhotoFormComponent implements OnInit {
       },
       (err) => console.log(err)
     );
+  }
+
+  public handleFile(file: File) {
+    this.file = file;
+    const reader = new FileReader();
+    reader.onload = (event: any) => (this.preview = event.target.result);
+    reader.readAsDataURL(file);
   }
 }

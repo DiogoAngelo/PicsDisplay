@@ -19,6 +19,7 @@ import { RouterModule } from "@angular/router";
     PhotoListComponent,
     PhotoFormComponent,
     PhotosComponent,
+    PhotoComponent,
     FilterByDescriptionPipe,
     LoadButtonComponent,
     SearchComponent,
