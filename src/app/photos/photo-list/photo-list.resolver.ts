@@ -5,8 +5,8 @@ import {
   RouterStateSnapshot,
 } from "@angular/router";
 import { Observable } from "rxjs";
-import { Photo } from "../photo/photo";
 import { PhotoService } from "../../Service/photo.service";
+import { Photo } from "../../shared/models/photo";
 
 @Injectable({
   providedIn: "root",

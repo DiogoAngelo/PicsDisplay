@@ -5,7 +5,7 @@ import {
   OnInit,
   SimpleChanges,
 } from "@angular/core";
-import { Photo } from "../../photo/photo";
+import { Photo } from "../../../shared/models/photo";
 
 @Component({
   selector: "ap-photos",

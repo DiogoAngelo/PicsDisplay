@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Photo } from "../photos/photo/photo";
 import { environment } from "../../environments/environment";
+import { Photo } from "../shared/models/photo";
 
 @Injectable({ providedIn: "root" })
 export class PhotoService {
@@ -9,7 +9,7 @@ export class PhotoService {
 
   public listFromUser(userName: string, page?: number) {
     const params = new HttpParams().append("page", page.toString());
-    return this.http.get<Photo[]>(`${environment.url}/${userName}/photos`, {
+    return this.http.get<[Photo]>(`${environment.url}/${userName}/photos`, {
       params,
     });
   }
