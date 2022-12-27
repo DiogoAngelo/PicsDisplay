@@ -1,1 +1,52 @@
-<h1>Photo details works!</h1>
+<div *ngIf="photo$ | async as photo" class="bg-white border">
+  <div class="row">
+    <div class="col-lg-8">
+      <ap-photo [url]="photo.url" [description]="photo.description"></ap-photo>
+    </div>
+
+    <div class="col-lg-4 p-4">
+      <small>
+        <p class="text-left break-word">{{photo.description}}</p>
+        <div class="text-left mb-4">
+          <i PhotoOwnerOnly class="fa fa-comment-o fa-2x mr-2 ml-2"></i>{{ photo.comments }}
+          <i (click)="removePhoto()" class="fa fa-trash-o fa-2x pull-right"></i>
+        </div>
+        <hr>
+      </small>
+      <div *ngIf="photo.allowComments; else warning">
+
+        <div *ngIf="comments$ | async as comments">
+          <ul class="comment-list list-unstyled">
+            <li *ngFor="let comment of comments">
+              <a [routerLink]="['/user', comment.userName]" class="text-dark font-weight-bold mr-1">
+                {{comment.userName}}
+              </a>
+              <em>{{ comment.date | date: "dd-MM-yyyy HH:mm" }}</em>
+              <p class="break-word mb-2">{{comment.text }}</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="mt-4">
+          <form [formGroup]="commentsForm" (submit)="postComment()">
+            <div class="input-group">
+              <textarea formControlName="comment" class="form-control"></textarea>
+              <div class="input-group-append">
+                <button [disabled]="commentsForm.invalid" class="btn btn-primary pull-left">Post</button>
+              </div>
+            </div>
+            <ap-form-validation [control]="commentsForm.controls.comment"></ap-form-validation>
+          </form>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+<!-- TEMPLATES -->
+
+<ng-template #warning>
+  <p class="py-5">User has disabled comments</p>
+</ng-template>

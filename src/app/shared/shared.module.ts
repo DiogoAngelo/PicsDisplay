@@ -4,6 +4,7 @@ import { CardComponent } from "./components/card/card.component";
 import { FormValidationComponent } from "./validation-messages/form-validation.component";
 import { DarkenOnHover } from "./directives/darken-on-hover.directive";
 import { ImmediateClick } from "./directives/immediate-click.directive";
+import { PhotoOwnerOnlyDirective } from "./directives/photo-owner-only.directive";
 
 @NgModule({
   declarations: [
@@ -11,6 +12,7 @@ import { ImmediateClick } from "./directives/immediate-click.directive";
     DarkenOnHover,
     FormValidationComponent,
     ImmediateClick,
+    PhotoOwnerOnlyDirective,
   ],
   imports: [CommonModule],
   exports: [
@@ -18,6 +20,7 @@ import { ImmediateClick } from "./directives/immediate-click.directive";
     DarkenOnHover,
     FormValidationComponent,
     ImmediateClick,
+    PhotoOwnerOnlyDirective,
   ],
 })
 export class SharedModule {}

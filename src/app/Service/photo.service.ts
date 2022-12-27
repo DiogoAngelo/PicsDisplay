@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { environment } from "../../environments/environment";
 import { Photo } from "../shared/models/photo";
+import { PhotoComment } from "../shared/models/photo-comment";
 
 @Injectable({ providedIn: "root" })
 export class PhotoService {
@@ -19,7 +20,26 @@ export class PhotoService {
     formData.append("description", description);
     formData.append("allowComments", allowComments ? "true" : "false");
     formData.append("imageFile", file);
-    console.log(formData);
     return this.http.post(`${environment.url}/photos/upload`, formData);
+  }
+
+  public findById(photoId: number) {
+    return this.http.get<Photo>(`${environment.url}/photos/${photoId}`);
+  }
+
+  public addComment(photoId: number, commentText: string) {
+    return this.http.post(`${environment.url}/photos/${photoId}/comments`, {
+      commentText,
+    });
+  }
+
+  public getComments(photoId: number) {
+    return this.http.get<PhotoComment[]>(
+      `${environment.url}/photos/${photoId}/comments`
+    );
+  }
+
+  public removePhoto(photoId: number) {
+    return this.http.delete(`${environment.url}/photos/${photoId}`);
   }
 }
