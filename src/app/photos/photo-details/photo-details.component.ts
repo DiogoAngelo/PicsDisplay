@@ -33,6 +33,7 @@ export class PhotoDetailsComponent implements OnInit {
   public user: string;
 
   public ngOnInit() {
+    this.user = this.userService.getUserName;
     this.photo$ = this.photoService.findById(this.photoId);
     this.comments$ = this.photoService.getComments(this.photoId);
 

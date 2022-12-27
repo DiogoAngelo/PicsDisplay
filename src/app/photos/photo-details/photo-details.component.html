@@ -8,13 +8,12 @@
       <small>
         <p class="text-left break-word">{{photo.description}}</p>
         <div class="text-left mb-4">
-          <i PhotoOwnerOnly class="fa fa-comment-o fa-2x mr-2 ml-2"></i>{{ photo.comments }}
-          <i (click)="removePhoto()" class="fa fa-trash-o fa-2x pull-right"></i>
+          <i class="fa fa-comment-o fa-2x mr-2 ml-2"></i>{{ photo.comments }}
+          <i PhotoOwnerOnly [photoOwned]="photo" (click)="removePhoto()" class="fa fa-trash-o fa-2x pull-right"></i>
         </div>
         <hr>
       </small>
       <div *ngIf="photo.allowComments; else warning">
-
         <div *ngIf="comments$ | async as comments">
           <ul class="comment-list list-unstyled">
             <li *ngFor="let comment of comments">
@@ -27,7 +26,7 @@
           </ul>
         </div>
 
-        <div class="mt-4">
+        <div *ngIf="user"  class="mt-4">
           <form [formGroup]="commentsForm" (submit)="postComment()">
             <div class="input-group">
               <textarea formControlName="comment" class="form-control"></textarea>
@@ -39,8 +38,6 @@
           </form>
         </div>
       </div>
-
-
     </div>
   </div>
 </div>
