@@ -6,6 +6,7 @@ import { DarkenOnHover } from "./directives/darken-on-hover.directive";
 import { ImmediateClick } from "./directives/immediate-click.directive";
 import { PhotoOwnerOnlyDirective } from "./directives/photo-owner-only.directive";
 import { AlertComponent } from "./alert/alert.component";
+import { ShowIfLoggedDirective } from "./directives/show-if-logged.directive";
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { AlertComponent } from "./alert/alert.component";
     FormValidationComponent,
     ImmediateClick,
     PhotoOwnerOnlyDirective,
+    ShowIfLoggedDirective,
     AlertComponent,
   ],
   imports: [CommonModule],
@@ -23,6 +25,7 @@ import { AlertComponent } from "./alert/alert.component";
     FormValidationComponent,
     ImmediateClick,
     PhotoOwnerOnlyDirective,
+    ShowIfLoggedDirective,
     AlertComponent,
   ],
 })
