@@ -3,6 +3,8 @@ import { Injectable } from "@angular/core";
 import { environment } from "../../environments/environment";
 import { Photo } from "../shared/models/photo";
 import { PhotoComment } from "../shared/models/photo-comment";
+import { map, catchError, tap, mapTo } from "rxjs/operators";
+import { throwError, of } from "rxjs";
 
 @Injectable({ providedIn: "root" })
 export class PhotoService {
@@ -41,5 +43,16 @@ export class PhotoService {
 
   public removePhoto(photoId: number) {
     return this.http.delete(`${environment.url}/photos/${photoId}`);
+  }
+
+  public likePhoto(photoId: number) {
+    return this.http
+      .post(
+        `${environment.url}/photos/${photoId}/like`,
+        {},
+        { observe: "response" }
+      )
+      .pipe(mapTo(true))
+      .pipe(catchError((err) => (err == "304" ? of(false) : throwError(err))));
   }
 }

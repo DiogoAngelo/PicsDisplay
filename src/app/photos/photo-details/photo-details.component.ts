@@ -68,4 +68,10 @@ export class PhotoDetailsComponent implements OnInit {
       (err) => this.alertService.danger("Photo could not be removed")
     );
   }
+
+  public likePhoto(photoId: number) {
+    this.photoService.likePhoto(photoId).subscribe(() => {
+      this.photo$ = this.photoService.findById(photoId);
+    });
+  }
 }
