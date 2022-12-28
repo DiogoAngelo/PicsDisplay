@@ -12,6 +12,7 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { switchMap, tap } from "rxjs/operators";
 import { UserService } from "../../Service/user.service";
 import { User } from "../../shared/models/user";
+import { AlertService } from "../../Service/alert.service";
 
 @Component({
   templateUrl: "./photo-details.component.html",
@@ -23,7 +24,8 @@ export class PhotoDetailsComponent implements OnInit {
     private photoService: PhotoService,
     private formBuilder: FormBuilder,
     private router: Router,
-    private userService: UserService
+    private userService: UserService,
+    private alertService: AlertService
   ) {}
 
   public photoId = this.route.snapshot.params.photoId;
@@ -51,8 +53,12 @@ export class PhotoDetailsComponent implements OnInit {
   }
 
   public removePhoto() {
-    this.photoService.removePhoto(this.photoId).subscribe(() => {
-      this.router.navigate([""]);
-    });
+    this.photoService.removePhoto(this.photoId).subscribe(
+      () => {
+        this.alertService.success("Photo removed");
+        this.router.navigate([""]);
+      },
+      (err) => this.alertService.danger("Photo could not be removed")
+    );
   }
 }

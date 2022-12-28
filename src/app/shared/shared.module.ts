@@ -5,6 +5,7 @@ import { FormValidationComponent } from "./validation-messages/form-validation.c
 import { DarkenOnHover } from "./directives/darken-on-hover.directive";
 import { ImmediateClick } from "./directives/immediate-click.directive";
 import { PhotoOwnerOnlyDirective } from "./directives/photo-owner-only.directive";
+import { AlertComponent } from "./alert/alert.component";
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { PhotoOwnerOnlyDirective } from "./directives/photo-owner-only.directive
     FormValidationComponent,
     ImmediateClick,
     PhotoOwnerOnlyDirective,
+    AlertComponent,
   ],
   imports: [CommonModule],
   exports: [
@@ -21,6 +23,7 @@ import { PhotoOwnerOnlyDirective } from "./directives/photo-owner-only.directive
     FormValidationComponent,
     ImmediateClick,
     PhotoOwnerOnlyDirective,
+    AlertComponent,
   ],
 })
 export class SharedModule {}
