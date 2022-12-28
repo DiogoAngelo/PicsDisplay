@@ -37,6 +37,13 @@ export class PhotoDetailsComponent implements OnInit {
   public ngOnInit() {
     this.user = this.userService.getUserName;
     this.photo$ = this.photoService.findById(this.photoId);
+    this.photo$.subscribe(
+      () => {},
+      (err) => {
+        this.router.navigate(["/not-found"]);
+      }
+    );
+
     this.comments$ = this.photoService.getComments(this.photoId);
 
     this.commentsForm = this.formBuilder.group({
