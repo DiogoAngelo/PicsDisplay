@@ -9,25 +9,17 @@ import { Input } from "@angular/core";
 })
 export class AlertComponent implements OnInit {
   @Input() public timeOut = 3000;
-  public alerts: Alert[] = [];
+  public alert: Alert;
 
   constructor(private alertService: AlertService) {}
 
   public ngOnInit() {
     this.alertService.getAlert().subscribe((alert) => {
-      if (!alert) {
-        this.alerts = [];
-        return;
-      }
-      this.alerts.push(alert);
+      this.alert = alert;
       setTimeout(() => {
-        this.removeAlert(alert);
+        this.alert = null;
       }, this.timeOut);
     });
-  }
-
-  private removeAlert(alertToRemove: Alert) {
-    this.alerts = this.alerts.filter((alert) => alert !== alertToRemove);
   }
 
   public getAlertClass(alert: Alert) {

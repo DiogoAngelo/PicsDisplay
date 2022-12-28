@@ -11,12 +11,15 @@ export class AlertService {
   public success(message: string) {
     return this.alert(AlertType.SUCCESS, message);
   }
+
   public warning(message: string) {
     return this.alert(AlertType.WARNING, message);
   }
+
   public danger(message: string) {
     return this.alert(AlertType.DANGER, message);
   }
+
   public info(message: string) {
     return this.alert(AlertType.INFO, message);
   }
