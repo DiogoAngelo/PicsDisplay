@@ -18,11 +18,21 @@ const routes: Routes = [
     path: "user/:userName",
     component: PhotoListComponent,
     resolve: { photos: PhotoListResolver },
+    data: { title: "Timeline" },
   },
-  { path: "p/add", component: PhotoFormComponent, canActivate: [AuthGuard] },
-  { path: "p/:photoId", component: PhotoDetailsComponent },
+  {
+    path: "p/add",
+    component: PhotoFormComponent,
+    canActivate: [AuthGuard],
+    data: { title: "Photo upload" },
+  },
+  {
+    path: "p/:photoId",
+    component: PhotoDetailsComponent,
+    data: { title: "Photo details" },
+  },
   { path: "not-found", component: NotFoundComponent },
-  { path: "**", redirectTo: "not-found" },
+  { path: "**", redirectTo: "not-found", data: { title: "Page not found" } },
 ];
 
 @NgModule({
