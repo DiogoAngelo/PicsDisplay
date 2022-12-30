@@ -1,0 +1,9 @@
+  <div *ngIf="open" class="d-flex align-items-center justify-content-center custom-modal-container">
+    <div class="d-flex flex-column justify-content-center align-items-center rounded custom-modal-content">
+      <h4>{{modalMessage}}</h4>
+      <div class="d-flex custom-buttons-container">
+        <button  (click)="removePhoto()" class="btn {{ modalConfirmButtonColor }}">{{modalConfirmButton}}</button>
+        <button (click)="toggleModal()" class="btn {{ modalCancelButtonColor }}">{{modalCancelButton}}</button>
+      </div>
+    </div>
+  </div>

@@ -7,6 +7,7 @@ import { ImmediateClick } from "./directives/immediate-click.directive";
 import { PhotoOwnerOnlyDirective } from "./directives/photo-owner-only.directive";
 import { AlertComponent } from "./alert/alert.component";
 import { ShowIfLoggedDirective } from "./directives/show-if-logged.directive";
+import { ConfirmationModalComponent } from "./components/confirmation-modal/confirmation-modal.component";
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { ShowIfLoggedDirective } from "./directives/show-if-logged.directive";
     PhotoOwnerOnlyDirective,
     ShowIfLoggedDirective,
     AlertComponent,
+    ConfirmationModalComponent,
   ],
   imports: [CommonModule],
   exports: [
@@ -27,6 +29,7 @@ import { ShowIfLoggedDirective } from "./directives/show-if-logged.directive";
     PhotoOwnerOnlyDirective,
     ShowIfLoggedDirective,
     AlertComponent,
+    ConfirmationModalComponent,
   ],
 })
 export class SharedModule {}

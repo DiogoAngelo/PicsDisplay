@@ -1,4 +1,4 @@
-<div *ngIf="photo$ | async as photo" class="bg-white border">
+<div *ngIf="photo$ | async as photo" class="bg-white border custom-container">
   <div class="row">
     <div class="col-lg-8">
       <ap-photo [url]="photo.url" [description]="photo.description"></ap-photo>
@@ -10,7 +10,7 @@
         <div class="text-left mb-4">
           <i  (click)="likePhoto(photo.id)"  ShowIfLogged class="fa fa-heart-o fa-2x mr-2 pull-left"> {{ photo.likes }} </i>
           <i class="fa fa-comment-o fa-2x mr-2 ml-2"> {{ photo.comments }}</i>
-          <i PhotoOwnerOnly [photoOwned]="photo" (click)="removePhoto()" class="fa fa-trash-o fa-2x pull-right"></i>
+          <i PhotoOwnerOnly [photoOwned]="photo" (click)="toggleModal()" class="fa fa-trash-o fa-2x pull-right"></i>
         </div>
         <hr>
       </small>
@@ -48,3 +48,9 @@
 <ng-template #warning>
   <p class="py-5">User has disabled comments</p>
 </ng-template>
+
+<!-- CONFIRMATION MODAL -->
+<ap-confirmation-modal
+  [(open)]="canOpenModal"
+  modalMessage="Do you want to remove this photo?"
+></ap-confirmation-modal>

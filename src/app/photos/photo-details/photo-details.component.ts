@@ -33,6 +33,7 @@ export class PhotoDetailsComponent implements OnInit {
   public comments$: Observable<PhotoComment[]>;
   public commentsForm: FormGroup;
   public user: string;
+  public canOpenModal: boolean = false;
 
   public ngOnInit() {
     this.user = this.userService.getUserName;
@@ -59,19 +60,12 @@ export class PhotoDetailsComponent implements OnInit {
       .pipe(tap(() => this.commentsForm.reset()));
   }
 
-  public removePhoto() {
-    this.photoService.removePhoto(this.photoId).subscribe(
-      () => {
-        this.alertService.danger("Photo removed");
-        this.router.navigate([""]);
-      },
-      (err) => this.alertService.danger("Photo could not be removed")
-    );
-  }
-
   public likePhoto(photoId: number) {
     this.photoService.likePhoto(photoId).subscribe(() => {
       this.photo$ = this.photoService.findById(photoId);
     });
+  }
+  public toggleModal() {
+    this.canOpenModal = !this.canOpenModal;
   }
 }
