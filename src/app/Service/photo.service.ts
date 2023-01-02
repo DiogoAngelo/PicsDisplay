@@ -12,7 +12,7 @@ export class PhotoService {
 
   public listFromUser(userName: string, page?: number) {
     const params = new HttpParams().append("page", page.toString());
-    return this.http.get<[Photo]>(`${environment.url}/${userName}/photos`, {
+    return this.http.get<Photo[]>(`${environment.url}/${userName}/photos`, {
       params,
     });
   }
