@@ -9,7 +9,7 @@ export class TokenService {
   constructor() {}
 
   public setToken(token) {
-    window.localStorage.setItem(KEY, token);
+    localStorage.setItem(KEY, token);
   }
 
   public hasToken() {
