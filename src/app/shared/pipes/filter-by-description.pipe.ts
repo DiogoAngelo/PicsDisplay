@@ -6,7 +6,7 @@ import { Photo } from "../models/photo";
 })
 export class FilterByDescriptionPipe implements PipeTransform {
   transform(photos: Photo[], descriptionQuery: string) {
-    descriptionQuery = descriptionQuery.trim().toLocaleLowerCase();
+    descriptionQuery = descriptionQuery.trim().toLowerCase();
 
     if (descriptionQuery) {
       return photos.filter((photo) =>
